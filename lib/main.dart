@@ -10,9 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Startup Name Generator',
-      theme: new ThemeData(          // Add the 3 lines from here...
+      theme: new ThemeData(
+        // Add the 3 lines from here...
         primaryColor: Colors.white,
-      ),                             // ... to here.
+      ), // ... to here.
       home: new RandomWords(),
     );
   }
@@ -85,7 +86,7 @@ class RandomWordsState extends State<RandomWords> {
       new MaterialPageRoute<void>(
         builder: (BuildContext context) {
           final Iterable<ListTile> tiles = _saved.map(
-                (WordPair pair) {
+            (WordPair pair) {
               return new ListTile(
                 title: new Text(
                   pair.asPascalCase,
@@ -94,19 +95,16 @@ class RandomWordsState extends State<RandomWords> {
               );
             },
           );
-          final List<Widget> divided = ListTile
-              .divideTiles(
+          final List<Widget> divided = ListTile.divideTiles(
             context: context,
             tiles: tiles,
-          )
-              .toList();
+          ).toList();
           return new Scaffold(
             appBar: new AppBar(
               title: const Text('Saved Suggestions'),
             ),
             body: new ListView(children: divided),
           );
-
         },
       ),
     );
